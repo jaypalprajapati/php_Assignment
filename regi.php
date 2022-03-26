@@ -43,7 +43,7 @@ $name = $email = $gender = $address = $designation = $mobileno= "";
   }
 //}
 ?>
-<form method="post" action="process1.php<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="process1.php">
 
     
         <style>

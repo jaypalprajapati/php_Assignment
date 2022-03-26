@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'dbconnect.php';
-
+require 'finalupload_user.php';
 if(isset($_POST) && count($_POST)>0)
 {    
 	include "validate.php";
@@ -23,7 +23,7 @@ $add = $_POST['Address'];
 $mb = $_POST['MobileNo'];
 $drop = $_POST['Designation'];
 $gd = $_POST['gender'];
-
+$fu=$_SESSION['target_file'];
 if($pw!=$cw)
 {
 	echo "password and cpassword doesnot match";
@@ -38,7 +38,7 @@ if (mysqli_num_rows($rs1)>0)
 	exit();
 }
 
-$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender) VALUES('".$fn."','".$ln."','".$email."','".$add."','".$mb."','".$pw."','".$drop."','".$gd."')";
+$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender,resume) VALUES('".$fn."','".$ln."','".$email."','".$add."','".$mb."','".$pw."','".$drop."','".$gd."','".$fu."')";
 
 echo "$qry";
 

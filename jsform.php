@@ -332,7 +332,7 @@ if(isset($_SESSION['error_email_message']))
 </head>
 
 <body>
-    <form name="register" action="process1.php" method="POST">
+    <form name="register" action="process1.php" method="POST" enctype="multipart/form-data">
         <div class="container" style="background-color: aquamarine;">
             <div class="row ">
                 <div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12"
@@ -470,6 +470,15 @@ if(isset($_SESSION['error_email_message']))
                                 maxlength="12" class="form-control" />
                         </div>
                         <small id="TxtPasswordValidation" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <b>Profile photo</b>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input type="file" name="fileToUpload" class="form-control" />
+                            <div id=""></div>
+                        </div>
+                        <small id="" class="text-danger"></small>
                     </div>
                     <div class="form-group">
                         <!-- <a class="btn btn-success"><i class="fa fa-user-plus" style="color:white;"></i> Create New Account</a> -->
