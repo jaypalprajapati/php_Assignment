@@ -1,23 +1,23 @@
 <?php
-    $a=array("a"=>"Sahil" , array("b"=>"Jaypal"));  
+    $j=array("a"=>"Sahil" , array("b"=>"Jaypal"));  
     echo "<pre>";         
-    print_r($a);
+    print_r($j);
     echo "</pre>";
     $b=array("c"=>"milind");
              echo "<br>";
-    $c=array_merge($a[0],$b);
+    $c=array_merge($j[0],$b);
     
 
-    foreach($a as $key=>$value)
+    foreach($j as $key=>$value)
     {
         if(is_array($value))
         {
-            $a[$key] = array_merge($value,$b);
+            $j[$key] = array_merge($value,$b);
         }
     }
 
     echo "<pre>";         
-    print_r($a);
+    print_r($j);
     echo "</pre>";
 
 ?>

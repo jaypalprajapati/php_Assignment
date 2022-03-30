@@ -1,17 +1,17 @@
 <?php
 
-include 'dbconnect.php';
+require 'dbconnect.php';
 
 $qry="SELECT * FROM emp";
 
 $rs=mysqli_query($conn,$qry);
  session_start();
    
-    //  if (!isset($_SESSION['email'])) {
-    //      # code...
-    //       header("location:login.php");
-    //       exit();
-    //   }
+     if (!isset($_SESSION['email'])) {
+         # code...
+          header("location:login.php");
+          exit();
+      }
 
 
 ?>
@@ -22,7 +22,11 @@ $rs=mysqli_query($conn,$qry);
 	<title>View User</title>
 </head>
 <body>
-<table border="1" width="100%;">
+<center><h1><a href="form1.php">New Regitration</a></h1>
+		<h3><a href="logout.php"> Logout</a></h3>
+</center>
+
+<table border="1">
 	<td>Id</td>
 	<td>Name</td>
 	<td>Email</td>
@@ -31,8 +35,6 @@ $rs=mysqli_query($conn,$qry);
 	<td>Password</td>
 	<td>Designation</td>
 	<td>Gender</td>
-	<td>Resume</td>
-	<td>Downlod / Delete</td>
 	<td>EDIT</td>
 	<td>DELETE</td>
 	<td>AJEX DELETE</td>
@@ -46,35 +48,17 @@ $rs=mysqli_query($conn,$qry);
 	?>
 	<tr>
 		<td><?php echo $row['id']?></td>
-		<td><?php echo $row['fname']?> <?php echo $row['lname']?></td>
-		
+		<td><?php echo $row['fname']?></td>
 		<td><?php echo $row['email']?></td>
 		<td><?php echo $row['address']?></td>
 		<td><?php echo $row['mobile']?></td>
 		<td><?php echo $row['password']?></td>
 		<td><?php echo $row['designation']?></td>
 		<td><?php echo $row['gender']?></td>
-		<td><a href="upload/<?php echo $row['resume'];?>"> resume</td>
-		<td><a href="download.php?file=' . $file . '" title="Downlod FILE">Downlod FILE/ </a>
-		    <a href="deletefile.php?file=' . $file . '" title="Delete FILE">Delete FILE</a>
-		</td>
-		<td><a href="editjs.php?id=<?php echo $row['id']; ?>"  title="Edit">EDIT</a></td>
-		<td><a href="delete.php?id1=<?php echo $row['id']; ?>"  title="delete">Delete</a></td>
+		<td><a href="edit.php?id=<?php echo $row['id']; ?>"  title="Edit">EDIT</a></td>
+		<td><a href="delete.php?id=<?php echo $row['id']; ?>"  title="delete">delet</a></td>
 		<td><a onclick="deletere(<?php echo $row['id']; ?>)"  title="delete" >Delete</a></td>
-		<td>
-		<?php
-$thelist = "";
-  if ($handle = opendir('upload')) {
-    while (false !== ($file = readdir($handle))) {
-      if ($file != "." && $file != "..") {
-        $thelist .= '<li><p>Download file <a href="download.php?file=' . $file . '">'.$file.'jhbd</a></p></li>';
-        $thelist .= '<li><p>Delete file <a href="deletefile.php?file=' . $file . '">'.$file.'klkn</a></p></li>';
-        $thelist .= '<p>--------------------------------------';
-      }
-    }
-    closedir($handle);
-  }
-?></td>
+
 	</tr>
 	<?php
 		}
@@ -85,10 +69,6 @@ $thelist = "";
 	}
 	?>
 </table>
-<center><h1><a href="jsform.php">New Regitration</a></h1>
-		<h3><a href="logout.php"> Logout</a></h3>
-</center>
-
 
 <script>
 function deletere(id) {
@@ -120,6 +100,6 @@ function deletere(id) {
   }
 }
 </script>
-<input type="text" id="txtHint">
+<input type="hidden" id="txtHint">
 </body>
 </html>
