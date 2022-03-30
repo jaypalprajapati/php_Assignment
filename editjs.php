@@ -346,15 +346,13 @@ if(isset($_SESSION['error_email_message']))
 						<b>Gender</b>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-female"></i> | <i class="fa fa-male"></i></span>
-							<select id="gr" class="form-control">
-								<option value='select' disabled>-- Select --</option>
-								<option value='F' name="gender" value="<?php echo $row['gender']?>">Female</option>
-								<option value='M' name="gender" value="<?php echo $row['gender']?>">Male</option>
-							</select>
-						<small id="lnValidation" class="text-danger"></small>
+					<input type="radio" name="gender" value="female" value="<?php echo $row['gender']?>" required>Female
+                    <input type="radio" name="gender" value="male" value="<?php echo $row['gender']?>" required>Male
+					<small id="lnValidation" class="text-danger"></small>
 
 						</div>
 					</div>
+
 					<div class="form-group">
 						<b><i class="fa fa-phone"></i> Contact No.</b>
 						<div class="input-group">
@@ -368,11 +366,11 @@ if(isset($_SESSION['error_email_message']))
 						<b><i class="fa fa-phone"></i> Designation</b>
 						<div class="input-group">
                         <select name="Designation"class="form-control" id="Designation" required>
-        <option value="<?php echo $row['designation']?>"class="form-control"></option>
+        <option class="form-control"></option>
 
-        <option value="" class="form-control">Jr Devloper</option>
+        <option value="Jr Devloper" class="form-control">Jr Devloper</option>
         <option value="Sr.Software Devloper"class="form-control">Sr Devloper</option>
-        <option value="Project Manager"class="form-control">Associate Jr.Software Devloper </option>
+        <option value="Associate Jr.Software Devloper"class="form-control">Associate Jr.Software Devloper </option>
         <option value="Business Analyst "class="form-control"> Business Analyst</option>
     </select>
 </div>

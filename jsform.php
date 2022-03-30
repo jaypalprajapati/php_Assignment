@@ -371,19 +371,15 @@ if(isset($_SESSION['error_email_message']))
                         <small id="addValidation" class="text-danger"></small>
                     </div>
                     <div class="form-group">
-                        <b>Gender</b>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-female"></i> | <i
-                                    class="fa fa-male"></i></span>
-                            <select id="gr" class="form-control">
-                                <option value='select' disabled>-- Select --</option>
-                                <option value='F' name="gender">Female</option>
-                                <option value='M' name="gender">Male</option>
-                            </select>
-                            <small id="lnValidation" class="text-danger"></small>
+						<b>Gender</b>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-female"></i> | <i class="fa fa-male"></i></span>
+					<input  type="radio" name="gender" value="female" value="<?php echo $row['gender']?>" required>Female
+                    <input type="radio" name="gender" value="male" value="<?php echo $row['gender']?>" required>Male
+					<small id="lnValidation" class="text-danger"></small>
 
-                        </div>
-                    </div>
+						</div>
+					</div>
                     <div class="form-group">
                         <b><i class="fa fa-phone"></i> Contact No.</b>
                         <div class="input-group">
@@ -437,7 +433,7 @@ if(isset($_SESSION['error_email_message']))
                                 <option value="">Choose Designation</option>
                                 <option value="Jr.Software Devloper">Jr Devloper</option>
                                 <option value="Sr.Software Devloper">Sr Devloper</option>
-                                <option value="Project Manager">Associate Jr.Software Devloper</option>
+                                <option value="Associate Jr.Software Devloper">Associate Jr.Software Devloper</option>
                                 <option value="Business Analyst"> Business Analyst</option>
                             </select>
                         </div>
