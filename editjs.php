@@ -346,8 +346,8 @@ if(isset($_SESSION['error_email_message']))
 						<b>Gender</b>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-female"></i> | <i class="fa fa-male"></i></span>
-					<input type="radio" name="gender" value="female" value="<?php echo $row['gender']?>" required>Female
-                    <input type="radio" name="gender" value="male" value="<?php echo $row['gender']?>" required>Male
+					<input type="radio" name="gender" value="female"<?php echo $row['gender']=="female"?"checked=checked":""; ?> required>Female
+                    <input type="radio" name="gender" value="male" <?php echo $row['gender']=="male"?"checked=checked":""; ?> required>Male
 					<small id="lnValidation" class="text-danger"></small>
 
 						</div>
@@ -367,11 +367,10 @@ if(isset($_SESSION['error_email_message']))
 						<div class="input-group">
                         <select name="Designation"class="form-control" id="Designation" required>
         <option class="form-control"></option>
-
-        <option value="Jr Devloper" class="form-control">Jr Devloper</option>
-        <option value="Sr.Software Devloper"class="form-control">Sr Devloper</option>
-        <option value="Associate Jr.Software Devloper"class="form-control">Associate Jr.Software Devloper </option>
-        <option value="Business Analyst "class="form-control"> Business Analyst</option>
+        <option value="Jr Devloper" <?php echo $row['designation']=="Jr Devloper"?"selected=selected":""; ?> class="form-control">Jr Devloper</option>
+        <option value="Sr.Software Devloper"<?php echo $row['designation']=="Sr.Software Devloper"?"selected=selected":""; ?> class="form-control">Sr Devloper</option>
+        <option value="Associate Jr.Software Devloper"<?php echo $row['designation']=="Associate Jr.Software Devloper"?"selected=selected":""; ?> class="form-control">Associate Jr.Software Devloper </option>
+        <option value="Business Analyst "<?php echo $row['designation']=="Business Analyst "?"selected=selected":""; ?> class="form-control"> Business Analyst</option>
     </select>
 </div>
 

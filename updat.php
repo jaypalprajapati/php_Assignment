@@ -13,6 +13,15 @@ $mb = $_GET['MobileNo'];
 $drop = $_GET['Designation'];
 $gd = $_GET['gender'];
 
+// $qry1 = "SELECT * FROM emp where email = '".$email."'";
+// $rs1 = mysqli_query($conn,$qry1);
+// if (mysqli_num_rows($rs1)>0)
+//  {
+// 	
+// 	echo "EMAIL ALREADY EXIST";
+// 	exit();
+// }
+
 $qry="UPDATE emp SET fname='".$fn."',lname='".$ln."' ,email='".$email."' ,address='".$add."',mobile='".$mb."' ,password='".$pw."' ,designation='".$drop."' ,gender='".$gd."' WHERE id=$id";
 
 $rs=mysqli_query($conn,$qry);

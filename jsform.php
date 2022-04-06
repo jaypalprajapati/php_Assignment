@@ -34,7 +34,6 @@ if(isset($_SESSION['error_email_message']))
     var $FullNameRegEx = /^([a-zA-Z ]{2,40})$/;
     var $BankAccountNameRegEx = /^([a-zA-Z ]{2,60})$/;
     var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/;
-
     var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
     var $ConNoRegEx = /^([0-9]{10})$/;
     var $AgeRegEx = /^([0-9]{1,2})$/;
@@ -374,8 +373,8 @@ if(isset($_SESSION['error_email_message']))
 						<b>Gender</b>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-female"></i> | <i class="fa fa-male"></i></span>
-					<input  type="radio" name="gender" value="female" value="<?php echo $row['gender']?>" required>Female
-                    <input type="radio" name="gender" value="male" value="<?php echo $row['gender']?>" required>Male
+					<input  type="radio" name="gender" value="female" required>Female
+                    <input type="radio" name="gender" value="male" required>Male
 					<small id="lnValidation" class="text-danger"></small>
 
 						</div>
@@ -439,6 +438,25 @@ if(isset($_SESSION['error_email_message']))
                         </div>
                         <small id="DesignationValidation" class="text-danger"></small>
                     </div>
+                    <div>
+
+            <label>Favorite Subjects:</label>
+
+                <br />
+
+                <input type="checkbox" name="subject[]" value="Math"/>Math
+
+                <br />
+
+                <input type="checkbox" name="subject[]" value="English"/>English
+
+                <br />
+
+                <input type="checkbox" name="subject[]" value="Science"/>Science
+
+                <br />
+
+                <input type="checkbox" name="subject[]" value="History"/>History</div>           <br />
 <!-- ================================================================================================================================ -->
                     <div class="form-group">
                         <b>Email</b>
@@ -480,6 +498,7 @@ if(isset($_SESSION['error_email_message']))
                         <!-- <a class="btn btn-success"><i class="fa fa-user-plus" style="color:white;"></i> Create New Account</a> -->
                         <center> <input class="btn btn-danger" type="reset" style="color:white;">
                             <button class="btn btn-success" type="button" name="btn_sb" id="BtnSubmit">Submit</button>
+                           <h3> <a href="login.php"> LOGIN</a> </h3>
                         </center>
                     </div>
                 </div>

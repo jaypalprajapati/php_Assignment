@@ -22,6 +22,11 @@ $rs=mysqli_query($conn,$qry);
 	<title>View User</title>
 </head>
 <body>
+<center><h1><a href="jsform.php">New Regitration</a></h1>
+		<h3><a href="logout.php"> Logout</a></h3>
+</center>
+
+
 <table border="1" width="100%;">
 	<td>Id</td>
 	<td>Name</td>
@@ -55,26 +60,15 @@ $rs=mysqli_query($conn,$qry);
 		<td><?php echo $row['designation']?></td>
 		<td><?php echo $row['gender']?></td>
 		<td><a href="upload/<?php echo $row['resume'];?>"> resume</td>
-		<td><a href="download.php?file=' . $file . '" title="Downlod FILE">Downlod FILE/ </a>
-		    <a href="deletefile.php?file=' . $file . '" title="Delete FILE">Delete FILE</a>
+
+		<td><a href="download.php?file=<?php echo $row['resume'];?>" title="Downlod FILE">Downlod FILE/ </a>
+		    <a href="deletefile.php?file=' . <?php echo $row['resume'];?> . '" title="Delete FILE">Delete FILE</a>
 		</td>
 		<td><a href="editjs.php?id=<?php echo $row['id']; ?>"  title="Edit">EDIT</a></td>
 		<td><a href="delete.php?id1=<?php echo $row['id']; ?>"  title="delete">Delete</a></td>
 		<td><a onclick="deletere(<?php echo $row['id']; ?>)"  title="delete" >Delete</a></td>
-		<td>
-		<?php
-$thelist = "";
-  if ($handle = opendir('upload')) {
-    while (false !== ($file = readdir($handle))) {
-      if ($file != "." && $file != "..") {
-        $thelist .= '<li><p>Download file <a href="download.php?file=' . $file . '">'.$file.'jhbd</a></p></li>';
-        $thelist .= '<li><p>Delete file <a href="deletefile.php?file=' . $file . '">'.$file.'klkn</a></p></li>';
-        $thelist .= '<p>--------------------------------------';
-      }
-    }
-    closedir($handle);
-  }
-?></td>
+		
+		
 	</tr>
 	<?php
 		}
@@ -85,10 +79,20 @@ $thelist = "";
 	}
 	?>
 </table>
-<center><h1><a href="jsform.php">New Regitration</a></h1>
-		<h3><a href="logout.php"> Logout</a></h3>
-</center>
-
+<?php
+$thelist = "";
+  if ($handle = opendir('upload')) {
+    while (false !== ($file = readdir($handle))) {
+      if ($file != "." && $file != "..") {
+        $thelist .= '<li><p>Download file <a href="download.php?file=' . $file . '">'.$file.'</a></p></li>';
+        $thelist .= '<li><p>Delete file <a href="deletefile.php?file=' . $file . '">'.$file.'</a></p></li>';
+        $thelist .= '<p>--------------------------------------';
+      }
+    }
+    closedir($handle);
+  }
+?>
+<ul><?php echo $thelist; ?>
 
 <script>
 function deletere(id) {

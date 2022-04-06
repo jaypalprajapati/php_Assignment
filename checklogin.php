@@ -39,7 +39,7 @@ if(mysqli_num_rows($rs)>0)
 else
 {
 	echo "INVALID LOGIN";
-	header("location:login.php");
+	header("location:login.php?msg=please enter valid email and password");
 	exit();
 }
 ?>

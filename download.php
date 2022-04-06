@@ -5,7 +5,7 @@ if(isset($_REQUEST["file"])){
 
     /* Test whether the file name contains illegal characters
     such as "../" using the regular expression */
-        $filename = 'uploads/'.$file;
+        $filename = 'upload/'.$file;
 
         //$filename = 'readme.pdf';
 

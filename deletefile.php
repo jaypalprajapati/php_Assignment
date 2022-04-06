@@ -5,7 +5,7 @@ if(isset($_REQUEST["file"])){
 
     /* Test whether the file name contains illegal characters
     such as "../" using the regular expression */
-        $filename = "uploads/" . $file;
+        $filename = "upload/" . $file;
 
         //$filename = 'readme.pdf';
 
@@ -14,6 +14,7 @@ if(isset($_REQUEST["file"])){
       if(unlink($filename))
       {
           echo "file named $file has been deleted successfully";
+          header("location:index.php");
       }
       else
       {

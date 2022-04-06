@@ -24,6 +24,8 @@ $mb = $_POST['MobileNo'];
 $drop = $_POST['Designation'];
 $gd = $_POST['gender'];
 $fu=$_SESSION['target_file'];
+$sub = $_POST['subject'];
+
 if($pw!=$cw)
 {
 	echo "password and cpassword doesnot match";
@@ -37,8 +39,8 @@ if (mysqli_num_rows($rs1)>0)
 	header('Location:jsform.php');
 	exit();
 }
-
-$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender,resume) VALUES('".$fn."','".$ln."','".$email."','".$add."','".$mb."','".$pw."','".$drop."','".$gd."','".$fu."')";
+for ($i=0; $i<sizeof ($sub);$i++) { 
+$qry = "INSERT INTO emp(fname,lname,email,address,mobile,password,designation,gender,resume,subject) VALUES('".$fn."','".$ln."','".$email."','".$add."','".$mb."','".$pw."','".$drop."','".$gd."','".$fu."','".$sub."')";
 
 echo "$qry";
 
