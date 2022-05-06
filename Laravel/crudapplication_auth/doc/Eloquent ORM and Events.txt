@@ -1,0 +1,68 @@
+// Retrieve a model by its primary key...
+$flight = Flight::find(1);
+ 
+// Retrieve the first model matching the query constraints...
+$flight = Flight::where('active', 1)->first();
+
+$count = Flight::where('active', 1)->count();
+ 
+$max = Flight::where('active', 1)->max('price');
+
+
+public function store(Request $request)
+    {
+        // Validate the request...
+ 
+        $flight = new Flight;
+ 
+        $flight->name = $request->name;
+ 
+        $flight->save();
+    }
+
+
+$flight = Flight::create([
+    'name' => 'London to Paris',
+]);
+
+
+$flight = Flight::find(1);
+ 
+$flight->name = 'Paris to London';
+ 
+$flight->save();
+
+
+Flight::where('active', 1)
+      ->where('destination', 'San Diego')
+      ->update(['delayed' => 1]);
+
+$flight = Flight::find(1);
+
+$post = Post::all()->toArray();
+ 
+$flight->delete();
+
+$post = Post::all()->where('gender', 'female')->toArray();
+
+--------------------------------
+Events->
+
+php artisan make:event PostCreated
+
+This event is created in your app/Events path. Now open your app\Events\PostCreated.php
+
+php artisan make:listener NotifyPostCreated --event="PostCreated"
+
+Step 3: Register Event to Providers
+Now we register our event and listener in app/Providers/EventServiceProvider.php
+
+Dispatch Event From Controller in Laravel
+
+event(new PostCreated($post)); // dispatch event from here
+
+        //You can use the below commented code 
+        //PostCreated::dispatch($post);
+
+Step 5: Create Email Template
+resources\views\emails\post_created.blade.php

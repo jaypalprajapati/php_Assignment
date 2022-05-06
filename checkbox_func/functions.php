@@ -38,4 +38,3 @@ class insterdata
 // echo $a;
 
 //InsertIntoTable($sql);
-?>

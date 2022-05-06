@@ -1,50 +1,48 @@
 <?php
 
-include ("../dbconnect.php");
+include("../dbconnect.php");
 // echo "<pre>";
 // print_r($_POST);
 // echo "</pre>";
-@$data=$_POST['check'];
+@$data = $_POST['check'];
 
-if(isset($_POST['submit'])){
-    if(!empty($data)){
-        foreach($data as $key=>$values){
-            $ins="INSERT INTO table2 VALUES('','$values')";
-            if(mysqli_query($conn, $ins)){
+if (isset($_POST['submit'])) {
+    if (!empty($data)) {
+        foreach ($data as $key => $values) {
+            $ins = "INSERT INTO table2 VALUES('','$values')";
+            if (mysqli_query($conn, $ins)) {
                 $del = "DELETE FROM table1 WHERE text1='$values'";
                 if (mysqli_query($conn, $del)) {
-                  
+
                     // echo "Record deleted successfully";
                 } else {
                     echo "Error deleting record: " . mysqli_error($conn);
                 }
             }
-        }     
-    }
-    else{
+        }
+    } else {
         echo "Please Select any Checkbox ";
     }
-} 
+}
 
-if(isset($_POST['submit1'])){
-    if(!empty($data)){
-        foreach($data as $key=>$values){
-            $ins="INSERT INTO table1 VALUES('','$values')";
-            if(mysqli_query($conn, $ins)){
+if (isset($_POST['submit1'])) {
+    if (!empty($data)) {
+        foreach ($data as $key => $values) {
+            $ins = "INSERT INTO table1 VALUES('','$values')";
+            if (mysqli_query($conn, $ins)) {
                 $del = "DELETE FROM table2 WHERE text2='$values'";
                 if (mysqli_query($conn, $del)) {
-                  
+
                     // echo "Record deleted successfully";
                 } else {
                     echo "Error deleting record: " . mysqli_error($conn);
                 }
             }
-        }     
-    }
-    else{
+        }
+    } else {
         echo "Please Select any Checkbox ";
     }
-} 
+}
 // if (isset($_POST['submit'])) {
 //     foreach ($_POST as $key => $value) {
 //         $formdata = $_POST['submit'];
@@ -107,30 +105,30 @@ $total1 = mysqli_num_rows($data1);
 <html lang="en">
 
 <head>
-    
+
     <title>Display Table Data</title>
     <style>
-body {
-  width: 90%;
-  margin: 0 auto;
-}
+        body {
+            width: 90%;
+            margin: 0 auto;
+        }
 
-table:first-child {
-  background-color: gray;
-  color: white;
-  margin-right: 1%;
-}
+        table:first-child {
+            background-color: gray;
+            color: white;
+            margin-right: 1%;
+        }
 
-table:nth-child(2n) {
-  background-color: black;
-  color: white;
-}
+        table:nth-child(2n) {
+            background-color: black;
+            color: white;
+        }
 
-table {
-  width: 49%;
-  float: left;
-}
-</style>
+        table {
+            width: 49%;
+            float: left;
+        }
+    </style>
 </head>
 
 <body>
@@ -138,10 +136,10 @@ table {
         <?php
         if ($total != 0) {
         ?>
-            
-                <h2>TABLE1 Records</h2>
 
-         
+            <h2>TABLE1 Records</h2>
+
+
             <center>
                 <table border="2" cellspacing="5" width="50%">
                     <tr>
@@ -154,7 +152,7 @@ table {
             // print_r($result);
             // echo "</pre>";
             while ($result = mysqli_fetch_assoc($data)) {
-               
+
             ?>
                 <tr>
                     <td><?php echo $result['id1'] ?>
@@ -182,50 +180,50 @@ table {
         </table>
     </form>
     <form method="POST">
-    <?php
-    if ($total1 != 0) {
-    ?>
-        <center>
-            <h2>TABLE2 Records</h2>
-        </center>
-        <center>
-            <table border="2" cellspacing="5" width="50%">
-                <tr>
-                    <th width="03%">Id</th>
-                    <th width="10%">Sample form checkboxes</th>
-                </tr>
-        </center>
         <?php
-        //$result = mysqli_fetch_assoc($data);
-        //echo "<pre>";
-        // print_r($result);
-        // echo "</pre>";
-        while ($result1 = mysqli_fetch_assoc($data1)) {
+        if ($total1 != 0) {
         ?>
-            <tr>
-                <td><?php echo $result1['id2'] ?>
-                    <input type="hidden" name="id2_<?php echo $result1['id2'] ?>" value="<?php echo $result1['id2'] ?>">
-                </td>
-                <td><?php echo $result1['text2'] ?>
-                    <input type="checkbox" name="check[]" value="<?php echo $result1['text2'] ?>" />
-                </td>
-                <!-- <td>
+            <center>
+                <h2>TABLE2 Records</h2>
+            </center>
+            <center>
+                <table border="2" cellspacing="5" width="50%">
+                    <tr>
+                        <th width="03%">Id</th>
+                        <th width="10%">Sample form checkboxes</th>
+                    </tr>
+            </center>
+            <?php
+            //$result = mysqli_fetch_assoc($data);
+            //echo "<pre>";
+            // print_r($result);
+            // echo "</pre>";
+            while ($result1 = mysqli_fetch_assoc($data1)) {
+            ?>
+                <tr>
+                    <td><?php echo $result1['id2'] ?>
+                        <input type="hidden" name="id2_<?php echo $result1['id2'] ?>" value="<?php echo $result1['id2'] ?>">
+                    </td>
+                    <td><?php echo $result1['text2'] ?>
+                        <input type="checkbox" name="check[]" value="<?php echo $result1['text2'] ?>" />
+                    </td>
+                    <!-- <td>
          <input type="text" name="formtextdata_<//?php echo $result1['id2']?>"/>
          </td> -->
-            </tr>
-    <?php
+                </tr>
+        <?php
+            }
+        } else {
+            echo "No record found..";
         }
-    } else {
-        echo "No record found..";
-    }
-    ?>
-    <tr>
-        <td colspan="3" style="text-align: center;">
-            <input type="submit" value="submit" name="submit1">
-        </td>
-    </tr>
-    </table>
-</form>
+        ?>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+                <input type="submit" value="submit" name="submit1">
+            </td>
+        </tr>
+        </table>
+    </form>
 </body>
 
 </html>

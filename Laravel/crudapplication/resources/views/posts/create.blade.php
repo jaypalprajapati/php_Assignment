@@ -80,6 +80,24 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group form-control">
+                <strong>Subject:</strong>
+                <br />
+                <input type="checkbox" name="subject[]" value="Math"/>Math
+                <br />
+                <input type="checkbox" name="subject[]" value="English"/>English
+                <br />
+                <input type="checkbox" name="subject[]" value="Science"/>Science
+                <br />
+                <input type="checkbox" name="subject[]" value="History"/>History
+                <div>
+                @if ($errors->has('subject'))
+                <span class="text-danger">{{ $errors->first('subject') }}</span>
+                @endif
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>
                 <textarea class="form-control" style="height:150px" name="description" placeholder="Enter Description"></textarea>

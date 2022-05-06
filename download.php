@@ -26,4 +26,3 @@ if(isset($_REQUEST["file"])){
           echo "file not exists!!";
         }
 }
-?>

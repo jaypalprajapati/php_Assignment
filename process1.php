@@ -55,4 +55,4 @@ else
 	header("location:jsform.php");
  }
 }
-?>
+}

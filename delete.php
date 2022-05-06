@@ -1,10 +1,10 @@
 <?php
 require 'dbconnect.php';
 
-$id=$_GET['id'];
+$id = $_GET['id'];
 // $qry="UPDATE emp SET isactive=2 WHERE id=$id";
-$qry ="DELETE FROM emp WHERE id=$id";
-$rs=mysqli_query($conn,$qry);
+$qry = "DELETE FROM emp WHERE id=$id";
+$rs = mysqli_query($conn, $qry);
 // if($rs)
 // {
 
@@ -16,13 +16,9 @@ $rs=mysqli_query($conn,$qry);
 // {
 // 	echo "Error...";
 // }
-if($rs)
-{
+if ($rs) {
 
-	echo "1";
+	//echo "";
+} else {
+	//echo "Error...";
 }
-else
-{
-	echo "Error...";
-}
-?>

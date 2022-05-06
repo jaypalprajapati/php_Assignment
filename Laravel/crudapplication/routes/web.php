@@ -37,3 +37,7 @@ Route::put('blogs/{blog}', '[BlogController::class, 'update']');
 Route::get('blogs/{blog}', '[BlogController::class, 'show']');
 
 Route::delete('blogs/{blog}', '[BlogController::class, 'destroy']');*/
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

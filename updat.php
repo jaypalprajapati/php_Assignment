@@ -3,7 +3,7 @@
 session_start();
 require 'dbconnect.php';
 //var_dump($_GET);
-$id=$_GET['id'];
+$id = $_GET['id'];
 $fn = $_GET['name'];
 $ln = $_GET['name1'];
 $email = $_GET['email'];
@@ -22,18 +22,14 @@ $gd = $_GET['gender'];
 // 	exit();
 // }
 
-$qry="UPDATE emp SET fname='".$fn."',lname='".$ln."' ,email='".$email."' ,address='".$add."',mobile='".$mb."' ,password='".$pw."' ,designation='".$drop."' ,gender='".$gd."' WHERE id=$id";
+$qry = "UPDATE emp SET fname='" . $fn . "',lname='" . $ln . "' ,email='" . $email . "' ,address='" . $add . "',mobile='" . $mb . "' ,password='" . $pw . "' ,designation='" . $drop . "' ,gender='" . $gd . "' WHERE id=$id";
 
-$rs=mysqli_query($conn,$qry);
+$rs = mysqli_query($conn, $qry);
 
-if($rs)
-{
+if ($rs) {
 	//echo "Updated";
-	 header("location:index.php");
-	 exit();
-}
-else
-{
+	header("location:index.php");
+	exit();
+} else {
 	echo "Error...";
 }
-?>
