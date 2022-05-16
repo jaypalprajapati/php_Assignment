@@ -1,0 +1,32 @@
+        body {
+            background-color: #3b5a9d;
+        }
+        
+        #border {
+            box-shadow: 0px 0px 3px gray;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h3.a:hover {
+            font-weight: bold;
+            font-size: 20px;
+            columns: white;
+        }
+        
+        i.fa {
+            color: #b4a306;
+        }
+        
+        b {
+            color: hwb(340 10% 10% / 0.38);
+        }
+        /* .abc{background-image: url("img1.jpg");background-repeat: repeat; height: 100%;} */
+        /* small {
+    font-size: 20px;
+} */
+        
+        .abc {
+            background-color: #e8d3a3;
+            margin-top: 35px !important;
+        }
