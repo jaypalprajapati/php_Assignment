@@ -67,7 +67,7 @@ tr:hover {background-color: coral;}
 		<th>Designation</th>
 		<th>Gender</th>
 		<th>Resume</th>
-		<th>Downlod / Delete</th>
+		<th>Downlod /  </th>
 		<th>EDIT</th>
 		<th>DELETE</th>
 		<th>AJEX DELETE</th>
@@ -92,7 +92,7 @@ tr:hover {background-color: coral;}
 					<td><a target="_blank" href="upload/<?php echo $row['resume']; ?>"> <?php echo $row['resume']; ?></td>
 
 					<td><a href="download.php?file=<?php echo $row['resume']; ?>" title="Downlod FILE">Downlod FILE/ </a>
-						<a href="deletefile.php?file=' . <?php echo $row['resume']; ?> . '" title="Delete FILE">Delete FILE</a>
+						<!-- <a href="deletefile.php?file=' . <?php echo $row['resume']; ?> . '" title="Delete FILE">Delete FILE</a> -->
 					</td>
 					<td><a href="editjs.php?id=<?php echo $row['id']; ?>" title="Edit">EDIT</a></td>
 					<td><a href="delete.php?id=<?php echo $row['id']; ?>" title="delete">Delete</a></td>

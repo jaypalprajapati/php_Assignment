@@ -7,7 +7,7 @@ if (!isset($_SESSION['email'])) {
 	# code...
 	header("location:login.php");
 	exit();
-}
+ }
 // if (isset($_SESSION['error_message'])) {
 // 	echo "<pre>";
 // 	print_r($_SESSION['error_message']);
@@ -18,6 +18,7 @@ if (!isset($_SESSION['email'])) {
 if (isset($_SESSION['error_email_message'])) {
 	echo ($_SESSION['error_email_message']);
 	$_SESSION['error_email_message'] = "";
+	//exit;
 }
 $id = $_GET['id'];
 //echo"$id"; 
@@ -42,7 +43,9 @@ $row = mysqli_fetch_assoc($rs);
 </head>
 
 <body>
-	<form name="register" action="updat.php" method="post"  enctype="multipart/form-data" >
+<h1><a href="index.php">Back</a></h1>
+
+	<form name="register" action="updat_test.php" method="post"  enctype="multipart/form-data" >
 
 		<div class="container">
 			<div class="row ">
@@ -126,6 +129,15 @@ $row = mysqli_fetch_assoc($rs);
 						</div>
 						<small id="TxtPasswordValidation" class="text-danger"></small>
 					</div>
+					<div class="form-group">
+                        <b>Profile photo</b>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input id="file" type="file" name="fileToUpload" class="form-control" />
+                            <div ></div>
+                        </div>
+                        <small id="fileValidation" class="text-danger"></small>
+                    </div> 
 					<!-- <div class="form-group">
                         <b>Profile photo</b>
                         <div class="input-group">
@@ -145,7 +157,7 @@ $row = mysqli_fetch_assoc($rs);
 					</div> -->
 					<div class="form-group">
 
-						<input class="btn btn-success" id="BtnSubmit"type="submit" name="btn_sb" value="Updte">
+						<input class="btn btn-success" id="BtnSubmit" type="submit" name="btn_sb" value="Updte">
 					</div>
 				</div>
 			</div>
