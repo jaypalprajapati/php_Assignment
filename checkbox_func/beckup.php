@@ -9,7 +9,7 @@ include("../dbconnect.php");
 if (isset($_POST['submit'])) {
     if (!empty($data)) {
         foreach ($data as $key => $values) {
-            $ins = "INSERT INTO table2 VALUES('','$values')";
+            $ins = "INSERT INTO table2 VALUES(NULL,'$values')";
             if (mysqli_query($conn, $ins)) {
                 $del = "DELETE FROM table1 WHERE text1='$values'";
                 if (mysqli_query($conn, $del)) {
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit1'])) {
     if (!empty($data)) {
         foreach ($data as $key => $values) {
-            $ins = "INSERT INTO table1 VALUES('','$values')";
+            $ins = "INSERT INTO table1 VALUES(NULL,'$values')";
             if (mysqli_query($conn, $ins)) {
                 $del = "DELETE FROM table2 WHERE text2='$values'";
                 if (mysqli_query($conn, $del)) {
