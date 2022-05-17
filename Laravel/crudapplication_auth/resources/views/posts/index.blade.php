@@ -2,9 +2,7 @@
  
 @section('content')
 @php 
-    echo "<pre>";
-        print_r($datanew);
-    echo "</pre>";
+   
 @endphp
 
     <div class="row" style="margin-top: 5rem;">
@@ -54,7 +52,6 @@
         </tr>
         @endforeach
     </table>  
-    <p>Date: {{ convertYmdToMdy('2022-02-12') }}</p>
-    <p>Date: {{ convertMdyToYmd('02-12-2022') }}</p>
+   
     {!! $data->links() !!}      
 @endsection

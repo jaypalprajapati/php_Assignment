@@ -101,6 +101,9 @@ if (isset($_POST['btn_sb']) && count($_POST) > 0) {
 			}
 		}
 	} else {
-		echo "Error ..!  Please Select All Required Fields";
+		// echo "Error ..!  Please Select All Required Fields?error=";
+		// header("location:editjs.php?error=Error ..!  Please Select All Required Fields");
+		header("location:editjs.php?id=$id");
+
 	}
 }

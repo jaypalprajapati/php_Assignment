@@ -51,7 +51,7 @@ tr:hover {background-color: coral;}
                     }
                     ?>
 	<center>
-		<h1><a href="jsform.php">New Regitration</a></h1>
+		<!-- <h1><a href="jsform.php">New Regitration</a></h1> -->
 		<h3><a href="logout.php"> Logout</a></h3>
 	</center>
 

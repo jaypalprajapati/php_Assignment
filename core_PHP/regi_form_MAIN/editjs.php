@@ -48,6 +48,17 @@ $row = mysqli_fetch_assoc($rs);
 	<form name="register" action="updat_test.php" method="post"  enctype="multipart/form-data" >
 
 		<div class="container">
+		<?php
+    if (isset($_GET['error'])) {
+      # code...
+      $msg = $_GET['error'];
+    ?>
+      <h3 style="color:red;text-align: center;"><?php echo "<p>('$msg')</p>"; ?></h3>
+    <?php
+    } else {
+      $msg = "";
+    }
+    ?>
 			<div class="row ">
 				<input type="hidden" name="id" value="<?php echo $id; ?>">
 				<div class="abc col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12" id="border">
@@ -59,7 +70,7 @@ $row = mysqli_fetch_assoc($rs);
 
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-user"></i></span>
-							<input id="fn" type="text" name="name" placeholder="Enter Your firstname" maxlength="20" class="form-control" value="<?php echo $row['fname'] ?>" />
+							<input id="fn" type="text" name="name" placeholder="Enter Your firstname" maxlength="20" class="form-control" value="<?php echo $row['fname'] ?>" required/>
 						</div>
 						<small id="fnValidation" class="text-danger"></small>
 					</div>

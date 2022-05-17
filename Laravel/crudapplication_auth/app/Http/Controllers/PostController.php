@@ -112,14 +112,14 @@ class PostController extends Controller
     {
         //echo $post->id; exit;
         $request->validate([
-            'title' => 'required|min:8',
+            'title' => 'required|min:2',
             'email' => 'required|unique:posts,email,'.$post->id.',id',  
             'description' => 'required|max:50',
             'gender' => 'required',
             'designation' => 'required'
         ],[
                 'title.required' => 'Title is required',
-                'title.min' => 'Minimum 8 charachers require!!',
+                'title.min' => 'Minimum 2 charachers require!!',
                 'email.required' => 'Email is required',
                 'email.unique' => 'Email is already exists!!'
             ]);
